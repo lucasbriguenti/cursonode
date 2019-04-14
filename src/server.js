@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 const app=express();
 const path=require('path');
 const server=require('http').Server(app);
-const io=require('socket.io')( server);
+const io=require('socket.io')(server);
 const cors=require('cors');
 app.use(cors());
 mongoose.connect('mongodb+srv://test:test@cluster0-ajsvw.mongodb.net/test?retryWrites=true',
@@ -28,4 +28,4 @@ app.use(express.urlencoded({extended:true}));
 app.use('/files',express.static(path.resolve(__dirname,'..','tmp')));
 app.use(require('./routes'));
 
-server.listen(process.env.PORT || 3333);
+server.listen(process.env.URL || 3333);
